@@ -18,6 +18,11 @@ public class FirstFragment extends Fragment {
     private FragmentFirstBinding binding;
     private RecyclerView recyclerView;
     @Override
+
+
+
+
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_first, container, false);
         //binding = FragmentFirstBinding.inflate(inflater, container, false);
@@ -34,7 +39,7 @@ public class FirstFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+    //button code was here
 
     }
 

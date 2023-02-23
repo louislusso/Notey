@@ -31,11 +31,12 @@ public class RandomNumListAdapter extends RecyclerView.Adapter<RecyclerViewHolde
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
-        holder.getView().setText(String.valueOf(random.nextInt()));
+        //holder.getView().setText(String.valueOf(random.nextInt()));
+        holder.getView().setText("test"); //this is where you would put the array of note names
     }
 
     @Override
     public int getItemCount() {
-        return 100;
+        return 100; // this is where you put the array length so it posts each note name
     }
 }

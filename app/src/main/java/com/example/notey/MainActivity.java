@@ -1,24 +1,56 @@
 package com.example.notey;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.MenuInflater;
 import android.view.View;
-
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
 import com.example.notey.databinding.ActivityMainBinding;
-
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 
 public class MainActivity extends AppCompatActivity {
+
+    static ArrayList<String> notes = new ArrayList<>();
+    static ArrayAdapter arrayAdapter;
+
+ //   @Override
+ //   public boolean onCreateOptionsMenu(Menu menu) {
+
+  //      MenuInflater menuInflater = getMenuInflater();
+  //      menuInflater.inflate(R.menu.add_note_menu, menu);
+
+   //     return super.onCreateOptionsMenu(menu);
+
+  //  }
+
+
+    public void newNote(View view) {
+
+            // Going from MainActivity to NotesEditorActivity
+            Intent intent = new Intent(getApplicationContext(), NoteEditorActivity.class);
+            startActivity(intent);
+
+    }
+
+
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
@@ -42,30 +74,43 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
+
         });
+
+
+       // setContentView(R.layout.activity_main);
+
+      //  ListView listView = findViewById(R.id.listView);
+        //SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("com.example.notes", Context.MODE_PRIVATE);
+       // HashSet<String> set = (HashSet<String>) sharedPreferences.getStringSet("notes", null);
+
+        //if (set == null) {
+
+          //  notes.add("Example note");
+        //} else {
+          //  notes = new ArrayList(set);
+        //}
+
+        // Using custom listView Provided by Android Studio
+        //arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, notes);
+
+        //listView.setAdapter(arrayAdapter);
+
+        //listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+  //          @Override
+    //        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//
+                // Going from MainActivity to NotesEditorActivity
+  //              Intent intent = new Intent(getApplicationContext(), NoteEditorActivity.class);
+    //            intent.putExtra("noteId", i);
+      //          startActivity(intent);
+
+       //     }
+      //  }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     public boolean onSupportNavigateUp() {
